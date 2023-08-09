@@ -6,14 +6,6 @@ local FileNameComponent = {
   end,
 }
 
-local CodeiumStatus = {
-  provider = function() return " CODEIUM:" .. vim.fn["codeium#GetStatusString"]() end,
-  hl = function()
-    local utils = require "heirline.utils"
-    return { fg = utils.get_highlight("DiagnosticError").fg }
-  end,
-}
-
 return {
   "rebelot/heirline.nvim",
   opts = function(_, opts)
@@ -39,7 +31,6 @@ return {
       status.component.fill(),
       status.component.lsp(),
       status.component.treesitter(),
-      CodeiumStatus,
       status.component.nav(),
       status.component.mode { surround = { separator = "right" } },
     }
