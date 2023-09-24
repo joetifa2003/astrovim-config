@@ -9,6 +9,46 @@ vim.notify = function(msg, ...)
   notify(msg, ...)
 end
 
+-- convert this to lua: autocmd BufNewFile,BufRead *.ini setfiletype dosini
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+  pattern = { "*.templ" },
+  command = ":set ft=html",
+})
+
 return {
   colorscheme = "monokai-pro",
+  lsp = {
+    servers = {
+      "gopls",
+    },
+    formatting = {
+      format_on_save = {
+        enabled = true, -- enable format on save
+        ignore_filetypes = { -- disable format on save for specified filetypes
+          "html",
+        },
+      },
+    },
+    config = {
+      tailwindcss = {
+        filetypes = { "html", "typescriptreact", "javascriptreact", "templ" },
+      },
+      gopls = {
+        hints = {
+          assignVariableTypes = true,
+          compositeLiteralFields = true,
+          compositeLiteralTypes = true,
+          constantValues = true,
+          functionTypeParameters = true,
+          parameterNames = true,
+          rangeVariableTypes = true,
+        },
+      },
+      Lua = {
+        hint = {
+          enable = true,
+        },
+      },
+    },
+  },
 }
