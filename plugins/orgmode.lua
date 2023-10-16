@@ -28,7 +28,7 @@ return {
           },
           mp = {
             description = "progress",
-            template = "* TODO %? :progress:\n  [[file: %F]]",
+            template = "* TODO %? :progress:\n  [[file:%F]]",
             target = meetingNotesTarget,
           },
         },
