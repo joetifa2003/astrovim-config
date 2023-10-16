@@ -7,5 +7,9 @@ return {
     ["<leader>fj"] = {
       function() vim.cmd "Farr" end,
     },
+    ["<leader>gg"] = {
+      function() vim.cmd "LazyGit" end,
+      desc = "Open lazygit",
+    },
   },
 }
