@@ -40,7 +40,11 @@ return {
     "hrsh7th/nvim-cmp",
     opts = {
       sources = {
-        { name = "orgmode" },
+        { name = "nvim_lsp", priority = 1000 },
+        { name = "orgmode", priority = 800 },
+        { name = "luasnip", priority = 750 },
+        { name = "buffer", priority = 500 },
+        { name = "path", priority = 250 },
       },
     },
   },
