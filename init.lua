@@ -16,7 +16,7 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 })
 
 return {
-  colorscheme = "monokai-pro",
+  colorscheme = "tokyonight-night",
   lsp = {
     servers = {
       "gopls",
