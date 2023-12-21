@@ -16,8 +16,14 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 })
 
 return {
-  colorscheme = "tokyonight-night",
+  -- colorscheme = "tokyonight-night",
+  colorscheme = "catppuccin-mocha",
   lsp = {
+    clangd = {
+      capabilities = {
+        offsetEncoding = "utf-8",
+      },
+    },
     servers = {
       "gopls",
     },
@@ -36,6 +42,10 @@ return {
       gopls = {
         settings = {
           gopls = {
+            -- env = {
+            --   GOFLAGS = "-tags=windows,linux,unittest",
+            -- },
+            buildFlags = { "-tags=js" },
             hints = {
               assignVariableTypes = true,
               compositeLiteralFields = true,
@@ -57,6 +67,7 @@ return {
           },
         },
       },
+      clangd = {},
     },
   },
 }

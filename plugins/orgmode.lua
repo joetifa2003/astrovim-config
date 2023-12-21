@@ -15,6 +15,7 @@ return {
       require("orgmode").setup {
         org_agenda_files = "~/orgfiles/**/*",
         org_default_notes_file = "~/orgfiles/refile.org",
+        org_startup_folded = "showeverything",
         org_capture_templates = {
           t = {
             description = "Task",
@@ -23,12 +24,12 @@ return {
           m = "Meeting",
           mt = {
             description = "task",
-            template = "* TODO %? :task:\n  [[file:%F]]",
+            template = "\n* TODO %^{header} :task:\n  CREATED: %T\n\t%a\n\n\t%?\n",
             target = meetingNotesTarget,
           },
           mp = {
             description = "progress",
-            template = "* TODO %? :progress:\n  [[file:%F]]",
+            template = "\n* TODO %^{header} :progress:\n  CREATED: %T\n\t%a\n\n\t%?\n",
             target = meetingNotesTarget,
           },
         },
@@ -42,7 +43,8 @@ return {
       sources = {
         { name = "nvim_lsp", priority = 1000 },
         { name = "orgmode", priority = 800 },
-        { name = "luasnip", priority = 750 },
+        { name = "codeium", priority = 750 },
+        { name = "luasnip", priority = 700 },
         { name = "buffer", priority = 500 },
         { name = "path", priority = 250 },
       },
