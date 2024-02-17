@@ -5,6 +5,7 @@ return {
     priority = 1000,
     lazy = false,
     opts = {
+      no_italic = true,
       integrations = {
         telescope = {
           enabled = true,
