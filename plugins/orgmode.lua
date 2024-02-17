@@ -4,9 +4,9 @@ return {
   {
     "nvim-orgmode/orgmode",
     dependencies = {
-      { "nvim-treesitter/nvim-treesitter", lazy = false },
+      { "nvim-treesitter/nvim-treesitter" },
     },
-    lazy = false,
+    event = { "VeryLazy" },
     config = function()
       -- Load treesitter grammar for org
       require("orgmode").setup_ts_grammar()
@@ -48,15 +48,6 @@ return {
         { name = "buffer", priority = 500 },
         { name = "path", priority = 250 },
       },
-    },
-  },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = {
-      highlight = {
-        additional_vim_regex_highlighting = { "org" },
-      },
-      ensure_installed = { "org" },
     },
   },
 }
