@@ -1,4 +1,4 @@
-local meetingNotesTarget = "~/orgfiles/meeting-notes/%<%Y-%m-%d %A>.org"
+local meetingNotesTarget = "~/orgfiles/meeting-notes/Week %<%V>.org"
 
 return {
   {
@@ -37,6 +37,16 @@ return {
     end,
   },
   { "akinsho/org-bullets.nvim", config = function() require("org-bullets").setup {} end, lazy = false },
+  {
+    lazy = false,
+    "lukas-reineke/headlines.nvim",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    opts = {
+      org = {
+        headline_highlights = { "Headline" },
+      },
+    },
+  },
   {
     "hrsh7th/nvim-cmp",
     opts = {
